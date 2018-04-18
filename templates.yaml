@@ -1,0 +1,4 @@
+shadeStatus: The Shades are {{ percent }} percent open
+ChangeShadesIntent: The Shades have to changed to {{ percent }} percent open
+welcomeStatment: Welcome To The CSH Smart Room Skill, What would you like to interface with?
+failed: The request has failed, try again
