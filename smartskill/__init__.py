@@ -14,7 +14,7 @@ else:
     app.config.from_pyfile(os.path.join(os.getcwd(), "config.env.py"))
 
 
-ask = Ask(app)
+ask = Ask(app, "/")
 logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 URL = "https://smartroom-api.csh.rit.edu/"
 
