@@ -1,8 +1,8 @@
 import logging
-import requests
 import os
+import requests
 from flask import Flask, render_template
-from flask_ask import Ask, statement
+from flask_ask import Ask, statement, question
 
 app = Flask(__name__)
 
@@ -14,7 +14,7 @@ else:
     app.config.from_pyfile(os.path.join(os.getcwd(), "config.env.py"))
 
 
-ask = Ask(app, "/")
+ask = Ask(app)
 logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 URL = "https://smartroom-api.csh.rit.edu/"
 
@@ -22,7 +22,7 @@ URL = "https://smartroom-api.csh.rit.edu/"
 @ask.launch
 def launch():
     welcome_msg = render_template('welcomeStatment')
-    return Ask(welcome_msg)
+    return question(welcome_msg)
 
 @ask.intent("ShadesIntent")
 def shades_intent():
@@ -30,7 +30,7 @@ def shades_intent():
     request = requests.get(url=shades_url)
     data = request.json()
     msg = render_template('shadeStatus', percent=data['shadeStatus'])
-    return Ask(msg)
+    return question(msg)
 
 @ask.intent("ChangeShadesIntent", convert={'percent': int})
 def change_shades_intent(percent):
@@ -42,4 +42,3 @@ def change_shades_intent(percent):
     else:
         msg = render_template('failed')
     return statement(msg)
-
