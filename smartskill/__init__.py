@@ -29,7 +29,7 @@ def shades_intent():
     shades_url = URL+"shades"
     request = requests.get(url=shades_url)
     data = request.json()
-    msg = render_template('shadeStatus', percent=data['shadeStatus'])
+    msg = render_template('shadeStatus', percent=data['howOpen'])
     return question(msg)
 
 @ask.intent("ChangeShadesIntent", convert={'percent': int})
