@@ -2,3 +2,8 @@ shadeStatus: The Shades are {{ percent }} percent open
 ChangeShadesIntent: The Shades have to changed to {{ percent }} percent open
 welcomeStatment: Welcome To The CSH Smart Room Skill, What would you like to interface with?
 failed: The request has failed, try again
+CloseShadesIntent: The Shades have been closed
+OpenShadesIntent: The Shades have been opened
+help: To see commands for shade status say shade status help; To see commands on how to change the openess of the shades say change shades help; to open shades all the way say open shades, and to close shades say close shades
+ShadeStatusHelp: To get Shade Status you can say; how open are my shades, what is the status of shades, and shades
+ChangeShadesHelp: To change how open the shades are say; change to {open_percent}, change shades to {open_percent} percent, and open shades to {open_percent} percent
