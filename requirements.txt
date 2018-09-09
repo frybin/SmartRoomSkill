@@ -2,4 +2,4 @@ Flask==0.12.1
 Flask-Ask==0.9.8
 pylint==1.8.4
 requests==2.18.4
-cryptography==2.1.4
+cryptography==2.3
