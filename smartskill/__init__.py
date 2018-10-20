@@ -38,12 +38,15 @@ def change_shades_intent(percent):
     shades_url = URL+"shades"
     data = {'howOpen': percent}
     request = requests.post(url=shades_url, json=data, verify=True)
-    if request.text == "Success":
-        msg = render_template('ChangeShadesIntent', percent=percent)
-    else:
-        msg = render_template('failed')
+    msg = render_template('ChangeShadesIntent', percent=percent)
     return statement(msg).simple_card(
         title='Welcome to CSH SmartRoom', content='say Shades to interact with the windows')
+    # if request.text == "Success":
+    #     msg = render_template('ChangeShadesIntent', percent=percent)
+    # else:
+    #     msg = render_template('failed')
+    # return statement(msg).simple_card(
+    #     title='Welcome to CSH SmartRoom', content='say Shades to interact with the windows')
 
 @ask.intent("CloseShadesIntent")
 def close_shades_intent():
