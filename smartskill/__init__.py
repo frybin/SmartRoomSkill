@@ -50,22 +50,26 @@ def close_shades_intent():
     shades_url = URL+"shades"
     data = {'howOpen': 100}
     request = requests.post(url=shades_url, json=data, verify=True)
-    if request.text == "Success":
-        msg = render_template('CloseShadesIntent')
-    else:
-        msg = render_template('failed')
+    msg = render_template('CloseShadesIntent')
     return statement(msg)
+    # if request.text == "Success":
+    #     msg = render_template('CloseShadesIntent')
+    # else:
+    #     msg = render_template('failed')
+    # return statement(msg)
 
 @ask.intent("OpenShadesIntent")
 def open_shades_intent():
     shades_url = URL+"shades"
     data = {'howOpen': 0}
     request = requests.post(url=shades_url, json=data, verify=True)
-    if request.text == "Success":
-        msg = render_template('OpenShadesIntent')
-    else:
-        msg = render_template('failed')
+    msg = render_template('OpenShadesIntent')
     return statement(msg)
+    # if request.text == "Success":
+    #     msg = render_template('OpenShadesIntent')
+    # else:
+    #     msg = render_template('failed')
+    # return statement(msg)
 
 @ask.intent("AMAZON.HelpIntent")
 def help_intent():
@@ -82,3 +86,12 @@ def change_help_intent():
     msg = render_template('ChangeShadesHelp')
     return statement(msg).simple_card(title='Smart Room Help Commands', content=msg)
     
+@ask.intent('AMAZON.CancelIntent')
+def cancel_intent():
+    response = "Thank you for coming to the Smart Room, Goodbye"
+    return statement(response).simple_card('', response)
+
+@ask.intent('AMAZON.StopIntent')
+def stop_intent():
+    response = "Thank you for coming to the Smart Room, Goodbye"
+    return statement(response).simple_card('', response)
